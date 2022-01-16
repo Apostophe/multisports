@@ -1,11 +1,5 @@
 
-<form>
-  <button (click)="decrement('setNumber')"  [disabled]="setNumber <= 0">-</button>
-  <input [(ngModel)]="setNumber" type='text' name="setNumber"/>
-  <button (click)="increment('setNumber')" >+</button>
 
-  <button (click)="decrement('points')"  [disabled]="points <= 0">-</button>
-  <input [(ngModel)]="points" type='text' name="points"/>
-  <button (click)="increment('points')" >+</button>
-  <button (click)="onSubmit()" type="submit" class="btn btn-success"><a routerLink="/match" routerLinkActive="active">Submit</a></button>
-</form>
+<router-outlet></router-outlet>
+
+

@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+body {
+  font-family: "Montserrat", sans-serif !important;
+  background-color: #f7fafa;
+}
+
+#logo {
+  font-weight: bold;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+input[type=text], select, .card, .yellow-btn, .card-dark, .team-name, #events-box, .event-left, .event-right, .add-score {
+  border-radius: 7px !important;
+}
+
+.yellow-btn {
+  background-color: #FDC45C;
+  border: none;
+  color: white;
+  padding: 10px 80px;
+  transition: 0.3s;
+  font-weight: bold;
+}
+.yellow-btn:hover {
+  cursor: pointer;
+  background-color: #e8b351;
+}
+
+.required {
+  color: #FF6577;
+  font-size: 26px;
+  font-weight: bold;
+  position: relative;
+  top: 9px;
+}
+
+small {
+  color: #8A8D9A;
+  font-size: 12px;
+  position: relative;
+  top: -5px;
+}
+
+.card-dark {
+  background-color: #2A3040;
+  width: fit-content;
+  padding: 30px 70px 30px 30px;
+}
+.card-dark h3 {
+  color: white;
+}
+
+.card-title {
+  position: relative;
+  top: -70px;
+  left: -70px;
+}
+
+.remove-margins {
+  position: relative;
+  top: -50px;
+}
+
+.team-name {
+  background-color: #FDC45C;
+  width: fit-content;
+  margin: auto;
+  font-weight: bold;
+  color: white;
+  padding: 10px 20px;
+}
+
+.scores {
+  font-weight: bold;
+  color: #2A3040;
+  font-size: 36px;
+}
+
+#end-tournament-text:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#events-box {
+  background-color: #f7fafa;
+  height: 300px;
+  overflow-y: scroll;
+}
+
+.event-left, .event-right {
+  background-color: white;
+  width: fit-content;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 15px 30px;
+  border: 1px solid #F0F1F1;
+}
+
+.event-right {
+  float: right;
+}
+
+.add-score {
+  background-color: #FF6577;
+  color: white;
+  font-size: 24px;
+  width: fit-content;
+  padding: 5px 15px;
+  transition: 0.3s;
+  margin: auto;
+  position: relative;
+  top: 10px;
+}
+.add-score:hover {
+  background-color: #d74959;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=style.css.map */
