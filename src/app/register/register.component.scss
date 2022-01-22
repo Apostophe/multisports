@@ -14,7 +14,7 @@ body {
   font-weight: bold;
 }
 
-input[type=text], select, .card, .yellow-btn, .card-dark, .team-name, #events-box, .event-left, .event-right, .add-score, .white-btn {
+input[type=text], select, .card, .yellow-btn, .card-dark, .team-name, #events-box, .event-left, .event-right, .add-score {
   border-radius: 7px !important;
 }
 
@@ -29,19 +29,6 @@ input[type=text], select, .card, .yellow-btn, .card-dark, .team-name, #events-bo
 .yellow-btn:hover {
   cursor: pointer;
   background-color: #e8b351;
-}
-
-.white-btn {
-  background-color: white;
-  border: none;
-  color: #2A3040;
-  padding: 10px 90px;
-  transition: 0.3s;
-  font-weight: bold;
-}
-.white-btn:hover {
-  cursor: pointer;
-  background-color: #F0F1F1;
 }
 
 .required {
@@ -132,41 +119,6 @@ small {
 .add-score:hover {
   background-color: #d74959;
   cursor: pointer;
-}
-
-.bg-dark {
-  background-color: #2A3040 !important;
-  color: white;
-}
-.bg-dark h3, .bg-dark h4 {
-  font-weight: bold;
-}
-
-#sport-img {
-  width: 60%;
-}
-
-.tournament-card {
-  transition: 0.3s;
-  position: relative;
-  overflow: hidden;
-  text-overflow: clip;
-}
-.tournament-card i {
-  display: none;
-  transition: 0.3s;
-}
-.tournament-card:hover {
-  cursor: pointer;
-  background-color: #191f2a !important;
-}
-.tournament-card:hover i {
-  display: block;
-  position: absolute;
-  right: -35px;
-  bottom: -35px;
-  font-size: 150px;
-  color: #F0F1F1;
 }
 
 /*# sourceMappingURL=style.css.map */
