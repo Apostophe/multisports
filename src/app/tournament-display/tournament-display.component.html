@@ -47,6 +47,22 @@
         </div>
 
       </div>
+      <div class="row">
+        <div class="form-group mb-4 col-lg-6 col-12">
+          <label for="equipeA" class="mb-2"><span class="required">*</span>Equipe A</label>
+          <input type="text" class="form-control" [(ngModel)]="equipeA" name="equipeA" placeholder="Veuillez rentrer le nom de la premiere personne/equipe">
+        </div>
+        <div class="form-group mb-4 col-lg-6 col-12">
+          <label for="equipeB" class="mb-2"><span class="required">*</span>Equipe B</label>
+          <input type="text" class="form-control" [(ngModel)]="equipeB" name="equipeB" placeholder="Veuillez rentrer le nom de la deuxieme personne/equipe">
+        </div>
+        <div class="row justify-content-center mt-5">
+          <div class="text-center">
+            <a routerLink="/match"><button class="yellow-btn mb-3">Créer un match <i class="fas fa-arrow-circle-right"></i></button></a>
+            <!--<button class="yellow-btn">Rejoindre un tournoi <i class="fas fa-arrow-circle-right"></i></button>-->
+          </div>
+        </div>
+      </div>
       <!-- End inputs -->
     </div>
   </div>

@@ -7,6 +7,7 @@ import { MatchDisplayComponent } from './match-display/match-display.component';
 import { RegisterComponent } from './register/register.component';
 import { TournamentCreationComponent } from './tournament-creation/tournament-creation.component';
 import { TournamentDisplayComponent } from './tournament-display/tournament-display.component';
+import { TournamentHomeComponent } from './tournament-home/tournament-home.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'creation-tournament', component: TournamentCreationComponent },
   { path: 'display-tournament', component: TournamentDisplayComponent },
+  { path: 'tournament-home', component: TournamentHomeComponent },
   { path: '', component: HomeComponent},
 ];
 

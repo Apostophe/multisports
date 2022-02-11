@@ -13,6 +13,9 @@ body {
 .bold {
   font-weight: bold;
 }
+a {
+  all: unset;
+}
 
 input[type=text], select, .card, .yellow-btn, .card-dark, .team-name, #events-box, .event-left, .event-right, .add-score, .white-btn {
   border-radius: 7px !important;

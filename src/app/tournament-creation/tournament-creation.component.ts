@@ -2,16 +2,25 @@ import { Component, OnInit } from '@angular/core';
 import { webSocket } from "rxjs/webSocket";
 
 import {v4 as uuidv4} from 'uuid';
-
-const refereeConnection = 'ws://warm-dusk-64603.herokuapp.com/referee?refereeID=';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+const refereeConnection = 'http://warm-dusk-64603.herokuapp.com/create-tournament';
 @Component({
   selector: 'app-tournament-creation',
   templateUrl: './tournament-creation.component.html',
   styleUrls: ['./tournament-creation.component.scss']
 })
+
+
 export class TournamentCreationComponent implements OnInit {
 
-  constructor() { }
+  tournament_name:string='';
+  tournament_sport:string='';
+  eachProduct = {
+    "tournamentName": this.tournament_name,
+    "sport": this.tournament_sport,
+  }
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
   }
@@ -35,14 +44,9 @@ export class TournamentCreationComponent implements OnInit {
   };
 
   onSubmit(){
-    let myuuid = uuidv4();
-    console.log('Your UUID is: ' + myuuid);
-    let myWebSocket = webSocket(refereeConnection+myuuid);
-    myWebSocket.subscribe();
-    console.log(myWebSocket);
-    myWebSocket.next({
-      Referee : myuuid,
-      Event : 'match created'
+    const headers = { 'content-type': 'application/json','Access-Control-Allow-Origin': '*'};
+    this.http.post(refereeConnection,this.eachProduct,{'headers':headers}).subscribe(data => {
+      console.log(data);
     });
   }
 

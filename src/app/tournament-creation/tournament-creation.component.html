@@ -22,15 +22,15 @@
           <!-- Tournament name -->
           <div class="form-group mb-4 col-lg-6 col-12">
             <label for="tournament_name" class="mb-2"><span class="required">*</span> Nom du tournoi</label>
-            <input type="text" class="form-control" id="tournament_name" name="tournament_name" placeholder="Veuillez rentrer le nom du tournoi">
+            <input type="text" class="form-control" [(ngModel)]="tournament_name" name="tournament_name" placeholder="Veuillez rentrer le nom du tournoi">
           </div>
           <!-- End tournament name -->
           <!-- Tournament sport -->
           <div class="form-group mb-4 col-lg-6 col-12">
             <label for="tournament_sport" class="mb-2"><span class="required">*</span> Sport</label>
-            <select name="tournament_sport" id="tournament_sport" class="form-control">
+            <select name="tournament_sport" [(ngModel)]="tournament_sport" class="form-control">
               <option value="-1">Veuillez choisir un sport</option>
-              <option value="1">Escrime</option>
+              <option value="1">BADMINTON</option>
               <option value="2">Judo</option>
               <option value="3">Karaté</option>
               <option value="4">Curling sur gazon</option>
@@ -71,7 +71,7 @@
         <!-- Line 3 -->
         <div class="row justify-content-center mt-5">
           <div class="text-center">
-            <a routerLink="/match"><button (click)="onSubmit()" class="yellow-btn">Étape suivante <i class="fas fa-arrow-circle-right"></i></button></a>
+            <a routerLink="/tournament-home"><button (click)="onSubmit()" class="yellow-btn">Étape suivante <i class="fas fa-arrow-circle-right"></i></button></a>
             <small class="d-block mt-3">Annuler la création</small>
 
           </div>

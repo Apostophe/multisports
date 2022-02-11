@@ -11,6 +11,7 @@ import { RegisterComponent } from './register/register.component';
 import { TournamentHomeComponent } from './tournament-home/tournament-home.component';
 import { TournamentDisplayComponent } from './tournament-display/tournament-display.component';
 import { TournamentCreationComponent } from './tournament-creation/tournament-creation.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { TournamentCreationComponent } from './tournament-creation/tournament-cr
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule
   ],
   providers: [],
