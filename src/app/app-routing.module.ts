@@ -12,7 +12,7 @@ import { TournamentHomeComponent } from './tournament-home/tournament-home.compo
 
 
 const routes: Routes = [
-  { path: 'match', component: MatchDisplayComponent },
+  { path: 'match/:equipeA/:equipeB', component: MatchDisplayComponent },
   { path: 'all-matches', component: AllMatchesComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
