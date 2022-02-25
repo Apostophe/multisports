@@ -1,0 +1,41 @@
+
+  
+  <!-- Page content -->
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-12 col-11 card mt-5 p-5">
+  
+        <!-- Title -->
+        <div class="card-dark card-title">
+          <h3><i class="fas fa-list"></i> Liste des <span class="bold">matchs</span></h3>
+        </div>
+        <!-- End title -->
+  
+        <!-- Inputs -->
+        <div class="remove-margins">
+  
+  
+          <div class="row">
+            <!-- Tournament 1 -->
+            <div *ngFor="let match of matches" class="col-md-6 col-12 mb-3">
+              <div class="bg-dark card tournament-card">
+                <a routerLink="/match/{{match}}">
+                <div class="p-4">
+                  <h4>{{match}}</h4>
+                  <i class="fas fa-eye"></i>
+                </div>
+              </a>
+              </div>
+            </div>
+            <!-- End tournament 1 -->
+          </div>
+  
+  
+  
+        </div>
+        <!-- End inputs -->
+      </div>
+    </div>
+  </div>
+  <!-- End page content -->
+  

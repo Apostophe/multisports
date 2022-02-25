@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { webSocket } from 'rxjs/webSocket';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-tournament-home',
@@ -9,13 +11,24 @@ import { webSocket } from 'rxjs/webSocket';
 
 export class TournamentHomeComponent implements OnInit {
 
-  constructor() { }
+  tournaments;
+  interval: any;
+  searchText;
 
+  constructor(private http: HttpClient) { }
+  
   ngOnInit(): void {
-    let refereeConnection = 'ws://warm-dusk-64603.herokuapp.com/get-live-tournament';
-    let myWebSocket = webSocket(refereeConnection);
-    myWebSocket.subscribe();
-    console.log(myWebSocket);
+    this.refreshData();
+    this.interval = setInterval(() => { 
+      this.refreshData(); 
+  }, 5000);
+  }
+
+  refreshData():void{
+    let refereeConnection = 'http://127.0.0.1:8000/get-live-tournament';
+    this.http.get<any>(refereeConnection).subscribe(data=> {
+      this.tournaments = data;
+    });
   }
 
 }

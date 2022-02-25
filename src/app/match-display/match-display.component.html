@@ -1,11 +1,5 @@
 
 
-<!-- Header -->
-<div class="nav">
-  <h2 id="logo">Multisports</h2>
-</div>
-<!-- End Header -->
-
 <!-- Page content -->
 <div class="container">
   <div class="row justify-content-center">
@@ -25,30 +19,25 @@
             <small>Score actuel</small>
           </div>
           <div class="col-4">
-            <h4 class="text-center"><span class="team-name">PSG</span></h4>
-            <p class="text-center add-score"><i class="fas fa-plus-circle"></i></p>
+            <h4 class="text-center"><span class="team-name">{{equipeA}}</span></h4>
+            <p class="text-center add-score"><i class="fas fa-plus-circle" (click)="increment('A')"></i></p>
+            <p class="text-center add-score"><i class="fas fa-minus-circle" (click)="decrement('A')"></i></p>
           </div>
           <div class="col-4 text-center">
-            <h4 class="scores">1 - 0</h4>
+            <h4 class="scores">POINTS : {{pointA}} - {{pointB}}</h4>
+            <h2 class="scores1">SETS : {{nbSetA}} - {{nbSetB}}</h2>
           </div>
           <div class="col-4">
-            <h4 class="text-center"><span class="team-name">OM</span></h4>
-            <p class="text-center add-score"><i class="fas fa-plus-circle"></i></p>
+            <h4 class="text-center"><span class="team-name">{{equipeB}}</span></h4>
+            <p class="text-center add-score"><i class="fas fa-plus-circle" (click)="increment('B')"></i></p>
+            <p class="text-center add-score"><i class="fas fa-minus-circle" (click)="decrement('B')"></i></p>
           </div>
         </div>
-
-        <div class="row justify-content-center mt-5">
-          <div class="text-center">
-            <button class="yellow-btn">Ajouter un évènement <i class="fas fa-plus-circle"></i></button>
-            <small class="d-block mt-3" id="end-tournament-text">Terminer le match</small>
-          </div>
-        </div>
-
       </div>
       <!-- End inputs -->
 
       <!-- Events -->
-      <h4 class="mb-4"><b><i class="far fa-calendar-alt"></i> Évènements</b></h4>
+      <!--<h4 class="mb-4"><b><i class="far fa-calendar-alt"></i> Évènements</b></h4>
       <div class="row justify-content-center" id="events-box">
         <div><div class="event-left"><span class="bold">20"</span> Point PSG</div></div>
         <div><div class="event-right"><span class="bold">16"</span> Faute PSG</div></div>
@@ -57,7 +46,7 @@
         <div><div class="event-right"><span class="bold">6"</span> Faute OM</div></div>
         <div><div class="event-left"><span class="bold">3"</span> Faute OM</div></div>
         <div><div class="event-left"><span class="bold">1"</span> Coup d'envoi PSG</div></div>
-      </div>
+      </div>-->
       <!-- End events -->
 
     </div>

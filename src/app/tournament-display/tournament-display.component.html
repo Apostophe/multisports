@@ -1,10 +1,4 @@
 
-<!-- Header -->
-<div class="nav">
-  <h2 id="logo">Multisports</h2>
-</div>
-<!-- End Header -->
-
 <!-- Page content -->
 <div class="container">
   <div class="row justify-content-center">
@@ -12,37 +6,23 @@
 
       <!-- Title -->
       <div class="card-dark card-title">
-        <h3><i class="fas fa-list"></i> Liste des <span class="bold">tournois</span></h3>
+        <h3><i class="fas fa-list"></i> Matchs du tournoi <span class="bold">{{id}}</span></h3>
       </div>
       <!-- End title -->
 
       <!-- Inputs -->
       <div class="remove-margins">
 
-
         <div class="row">
 
-          <!-- Match 1 -->
-          <div class="col-md-6 col-12 mb-3">
+          <div *ngFor="let game of games" class="col-md-6 col-12 mb-3">
             <div class="bg-dark card tournament-card">
               <div class="p-4">
-                <h4>PSG 0 - 1 OM</h4>
+                <h4>{{game}}</h4>
                 <i class="fas fa-eye"></i>
               </div>
             </div>
           </div>
-          <!-- End match 1 -->
-
-          <!-- Match 2 -->
-          <div class="col-md-6 col-12 mb-3">
-            <div class="bg-dark card tournament-card">
-              <div class="p-4">
-                <h4>RCL 0 - 1 LOSC</h4>
-                <i class="fas fa-eye"></i>
-              </div>
-            </div>
-          </div>
-          <!-- End match 2 -->
 
         </div>
 
@@ -58,7 +38,7 @@
         </div>
         <div class="row justify-content-center mt-5">
           <div class="text-center">
-            <a routerLink="/match"><button class="yellow-btn mb-3">Créer un match <i class="fas fa-arrow-circle-right"></i></button></a>
+            <button class="yellow-btn mb-3" (click)="createGame()">Créer un match <i class="fas fa-arrow-circle-right"></i></button>
             <!--<button class="yellow-btn">Rejoindre un tournoi <i class="fas fa-arrow-circle-right"></i></button>-->
           </div>
         </div>

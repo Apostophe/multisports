@@ -1,9 +1,4 @@
 
-<!-- Header -->
-<div class="nav">
-  <h2 id="logo">Multisports</h2>
-</div>
-<!-- End Header -->
 <!-- Page content -->
 <div class="container">
   <div class="row justify-content-center">
@@ -29,45 +24,13 @@
           <div class="form-group mb-4 col-lg-6 col-12">
             <label for="tournament_sport" class="mb-2"><span class="required">*</span> Sport</label>
             <select name="tournament_sport" [(ngModel)]="tournament_sport" class="form-control">
-              <option value="-1">Veuillez choisir un sport</option>
-              <option value="1">BADMINTON</option>
-              <option value="2">Judo</option>
-              <option value="3">Karaté</option>
-              <option value="4">Curling sur gazon</option>
-              <option value="5">Sieste</option>
+              <option value="-1" disabled>Veuillez choisir un sport</option>
+              <option value="BADMINTON">Badminton</option>
             </select>
           </div>
           <!-- End tournament sport -->
         </div>
         <!-- End line 1 -->
-
-        <!-- Line 2 -->
-        <div class="row">
-          <!-- Tournament format -->
-          <div class="form-group mb-4 col-lg-6 col-12">
-            <label for="tournament_format" class="mb-2"><span class="required">*</span> Nombre de sets</label>
-            <select [(ngModel)]="setNumber" name="setNumber" id="tournament_format" class="form-control">
-              <option value="-1">Veuillez choisir un nombre de sets</option>
-              <option value="2">1</option>
-              <option value="1">3</option>
-              <option value="1">5</option>
-            </select>
-          </div>
-          <!-- End tournament format -->
-          <!-- Tournament player/team number -->
-          <div class="form-group mb-4 col-lg-6 col-12">
-            <label for="tournament_number" class="mb-2"><span class="required">*</span> Nombre de points</label>
-            <select [(ngModel)]="points" name="setNumber" id="tournament_number" class="form-control">
-              <option value="-1">Veuillez choisir un nombre de sets</option>
-              <option value="2">1</option>
-              <option value="1">3</option>
-              <option value="1">5</option>
-            </select>
-          </div>
-          <!-- End tournament player/team number -->
-        </div>
-        <!-- End line 2 -->
-
         <!-- Line 3 -->
         <div class="row justify-content-center mt-5">
           <div class="text-center">

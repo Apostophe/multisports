@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AllMatchesComponent } from './all-matches/all-matches.component';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -12,10 +13,11 @@ import { TournamentHomeComponent } from './tournament-home/tournament-home.compo
 
 const routes: Routes = [
   { path: 'match', component: MatchDisplayComponent },
+  { path: 'all-matches', component: AllMatchesComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'creation-tournament', component: TournamentCreationComponent },
-  { path: 'display-tournament', component: TournamentDisplayComponent },
+  { path: 'display-tournament/:id', component: TournamentDisplayComponent },
   { path: 'tournament-home', component: TournamentHomeComponent },
   { path: '', component: HomeComponent},
 ];

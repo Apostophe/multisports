@@ -3,16 +3,17 @@ body {
   font-family: "Montserrat", sans-serif !important;
   background-color: #f7fafa;
 }
-
+.bold {
+  font-weight: bold;
+}
 #logo {
   font-weight: bold;
   margin-left: 20px;
   margin-top: 20px;
+  text-decoration: none;
+  color: #2A3040;
 }
 
-.bold {
-  font-weight: bold;
-}
 
 input[type=text], select, .card, .yellow-btn, .card-dark, .team-name, #events-box, .event-left, .event-right, .add-score {
   border-radius: 7px !important;
