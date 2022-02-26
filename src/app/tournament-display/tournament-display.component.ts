@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { webSocket } from 'rxjs/webSocket';
 
-const refereeConnection = 'ws://127.0.0.1:8000/create-match';
+const refereeConnection = 'ws://warm-dusk-64603.herokuapp.com/create-match';
 
 
 @Component({
@@ -25,7 +25,7 @@ export class TournamentDisplayComponent implements OnInit {
       this.id = params['id'];
     });
     let params = new HttpParams().set("tournamentID",this.id.toString()); //Create new HttpParams
-    this.http.get<any>('http://127.0.0.1:8000/get-live-match-for-tournament', {params: params}).subscribe(data=>{
+    this.http.get<any>('http://warm-dusk-64603.herokuapp.com/get-live-match-for-tournament', {params: params}).subscribe(data=>{
       console.log(data);
       this.games =data;
     });
@@ -44,7 +44,7 @@ export class TournamentDisplayComponent implements OnInit {
 
     let params = new HttpParams().set("tournamentID",this.id.toString()).set("equipeA",this.equipeA).set("equipeB",this.equipeB).set("sport","BADMINTON"); //Create new HttpParams
     console.log(params);
-    this.http.get('http://127.0.0.1:8000/create-match',{params:params,responseType: 'text'}).subscribe(data=>{
+    this.http.get('http://warm-dusk-64603.herokuapp.com/create-match',{params:params,responseType: 'text'}).subscribe(data=>{
       console.log(data);
     });
   }

@@ -3,7 +3,7 @@ import { webSocket } from "rxjs/webSocket";
 
 import {v4 as uuidv4} from 'uuid';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-const refereeConnection = 'http://127.0.0.1:8000/create-tournament';
+const refereeConnection = 'http://warm-dusk-64603.herokuapp.com/create-tournament';
 @Component({
   selector: 'app-tournament-creation',
   templateUrl: './tournament-creation.component.html',

@@ -12,7 +12,7 @@ export class AllMatchesComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-      let refereeConnection = 'http://127.0.0.1:8000/get-live-match';
+      let refereeConnection = 'http://warm-dusk-64603.herokuapp.com/get-live-match';
       this.http.get<any>(refereeConnection).subscribe(data=> {
         console.log(data);
         this.matches = data;

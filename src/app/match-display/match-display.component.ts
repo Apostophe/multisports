@@ -16,17 +16,22 @@ export class MatchDisplayComponent implements OnInit {
   pointA=0;
   pointB=0;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,private router: Router) { }
   myWebSocketreferee
 
   ngOnInit(): void {
-    let refereeConnection = 'ws://127.0.0.1:8000/referee';
+
+    this.equipeA = this.route.snapshot.paramMap.get('equipeA');
+    this.equipeB = this.route.snapshot.paramMap.get('equipeB');
+
+
+    let refereeConnection = 'ws://warm-dusk-64603.herokuapp.com/referee';
     this.myWebSocketreferee = webSocket(refereeConnection);
     this.myWebSocketreferee.subscribe();
     console.log(this.myWebSocketreferee);
 
 
-    let specConnection = 'ws://127.0.0.1:8000/spectateur';
+    let specConnection = 'ws://warm-dusk-64603.herokuapp.com/spectateur';
     let myWebSocketspec = webSocket(refereeConnection);
     //myWebSocketspec.subscribe();
     console.log(myWebSocketspec);
@@ -71,6 +76,7 @@ export class MatchDisplayComponent implements OnInit {
     }
     if(this.nbSetA ==2 || this.nbSetB == 2){
       this.myWebSocketreferee.subscribe();
+      this.router.navigateByUrl("/tournament-home");
     }
   };
 

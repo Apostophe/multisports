@@ -25,7 +25,7 @@ export class TournamentHomeComponent implements OnInit {
   }
 
   refreshData():void{
-    let refereeConnection = 'http://127.0.0.1:8000/get-live-tournament';
+    let refereeConnection = 'http://warm-dusk-64603.herokuapp.com/get-live-tournament';
     this.http.get<any>(refereeConnection).subscribe(data=> {
       this.tournaments = data;
     });
