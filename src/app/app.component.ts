@@ -3,7 +3,7 @@ import { webSocket } from "rxjs/webSocket";
 
 import {v4 as uuidv4} from 'uuid';
 
-const refereeConnection = 'ws://127.0.0.1:8000/referee?refereeID=';
+const refereeConnection = 'ws://warm-dusk-64603.herokuapp.com/referee?refereeID=';
 
 @Component({
   selector: 'app-root',
