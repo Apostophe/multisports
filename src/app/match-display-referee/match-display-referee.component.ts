@@ -28,7 +28,6 @@ export class MatchDisplayRefereeComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id');
     this.refereeConnection = 'wss://warm-dusk-64603.herokuapp.com/referee?IdMatch='+this.id;
     this.beginMatch();
-
   }
 
 
@@ -118,7 +117,6 @@ export class MatchDisplayRefereeComponent implements OnInit {
     }
   };
   blankStart(){
-    this.startWS();
 
     this.myWebSocketreferee.next(
       {"IdMatch": this.id,
@@ -128,7 +126,6 @@ export class MatchDisplayRefereeComponent implements OnInit {
   }
 
   addPoint(equipe){
-    this.startWS();
 
       this.myWebSocketreferee.next(
         {"IdMatch": this.id,
@@ -138,7 +135,6 @@ export class MatchDisplayRefereeComponent implements OnInit {
   }
 removePoint(equipe)
 {
-  this.startWS();
 
     this.myWebSocketreferee.next(
       {"IdMatch": this.id,
@@ -171,7 +167,6 @@ removePoint(equipe)
   }
 
   newSet(){
-    this.startWS();
 
     this.myWebSocketreferee.next(
     {"IdMatch": this.id,
