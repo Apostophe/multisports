@@ -14,6 +14,8 @@ import { TournamentCreationComponent } from './tournament-creation/tournament-cr
 import { HttpClientModule } from '@angular/common/http';
 import { AllMatchesComponent } from './all-matches/all-matches.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatchDisplayRefereeComponent } from './match-display-referee/match-display-referee.component';
 
 @NgModule({
   declarations: [
@@ -25,14 +27,16 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     TournamentHomeComponent,
     TournamentDisplayComponent,
     TournamentCreationComponent,
-    AllMatchesComponent    
+    AllMatchesComponent,
+    MatchDisplayRefereeComponent    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     Ng2SearchPipeModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   exports:[MatchDisplayComponent,AppComponent],

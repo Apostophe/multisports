@@ -1,0 +1,56 @@
+
+
+<!-- Page content -->
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-12 col-11 card mt-5 p-5">
+  
+        <!-- Title -->
+        <div class="card-dark card-title">
+          <h3><i class="fas fa-eye"></i> Aperçu du <span class="bold">match</span></h3>
+        </div>
+        <!-- End title -->
+  
+        <!-- Inputs -->
+        <div class="remove-margins">
+  
+          <div class="row justify-content-center">
+            <div class="col-12 mt-3 text-center">
+              <small>Score actuel</small>
+            </div>
+            <div class="col-4">
+              <h4 class="text-center"><span class="team-name">{{equipeA}}</span></h4>
+              <p class="text-center add-score" (click)="increment('A')"><i class="fas fa-plus-circle"></i></p>
+              <p class="text-center add-score" (click)="removePoint('A')"><i class="fas fa-minus-circle"></i></p>
+            </div>
+            <div class="col-4 text-center">
+              <h4 class="scores">POINTS : {{pointA}} - {{pointB}}</h4>
+              <h2 class="scores1">SETS : {{nbSetA}} - {{nbSetB}}</h2>
+            </div>
+            <div class="col-4">
+              <h4 class="text-center"><span class="team-name">{{equipeB}}</span></h4>
+              <p class="text-center add-score" (click)="increment('B')"><i class="fas fa-plus-circle" ></i></p>
+              <p class="text-center add-score" (click)="removePoint('B')"><i class="fas fa-minus-circle" ></i></p>
+            </div>
+          </div>
+        </div>
+        <!-- End inputs -->
+  
+        <!-- Events -->
+        <!--<h4 class="mb-4"><b><i class="far fa-calendar-alt"></i> Évènements</b></h4>
+        <div class="row justify-content-center" id="events-box">
+          <div><div class="event-left"><span class="bold">20"</span> Point PSG</div></div>
+          <div><div class="event-right"><span class="bold">16"</span> Faute PSG</div></div>
+          <div><div class="event-left"><span class="bold">15"</span> Faute PSG</div></div>
+          <div><div class="event-right"><span class="bold">7"</span> Point OM</div></div>
+          <div><div class="event-right"><span class="bold">6"</span> Faute OM</div></div>
+          <div><div class="event-left"><span class="bold">3"</span> Faute OM</div></div>
+          <div><div class="event-left"><span class="bold">1"</span> Coup d'envoi PSG</div></div>
+        </div>-->
+        <!-- End events -->
+  
+      </div>
+    </div>
+  </div>
+  <!-- End page content -->
+  

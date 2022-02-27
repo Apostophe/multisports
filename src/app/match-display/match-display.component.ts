@@ -15,6 +15,11 @@ export class MatchDisplayComponent implements OnInit {
   nbSetB=0;
   pointA=0;
   pointB=0;
+  id;
+  interval: any;
+  refereeConnection;
+
+
 
   constructor(private route: ActivatedRoute,private router: Router) { }
   myWebSocketreferee
@@ -23,69 +28,59 @@ export class MatchDisplayComponent implements OnInit {
 
     this.equipeA = this.route.snapshot.paramMap.get('equipeA');
     this.equipeB = this.route.snapshot.paramMap.get('equipeB');
-
-
-    let refereeConnection = 'ws://warm-dusk-64603.herokuapp.com/referee';
-    this.myWebSocketreferee = webSocket(refereeConnection);
-    this.myWebSocketreferee.subscribe();
-    console.log(this.myWebSocketreferee);
-
-
-    let specConnection = 'ws://warm-dusk-64603.herokuapp.com/spectateur';
-    let myWebSocketspec = webSocket(refereeConnection);
-    //myWebSocketspec.subscribe();
-    console.log(myWebSocketspec);
+    this.id = this.route.snapshot.paramMap.get('id')
+    this.refereeConnection= 'ws://warm-dusk-64603.herokuapp.com/spectateur?matchID='+this.id;
+    this.refreshData();
+    this.interval = setInterval(() => { 
+      this.refreshData(); 
+    }, 40000);
+  }
+  refreshData():void{
+    this.startWS();
+    this.blankStart();
   }
 
-  increment(value) {
-    if(value == "A"){
-      if (this.pointA>=21 && this.pointA-this.pointB<2){
-        this.pointA++;
+  startWS(){
+    this.myWebSocketreferee = webSocket({
+      url:this.refereeConnection,
+      deserializer:({data})=>data.replace(/\'/g, '"')
+    });
+    
+    this.myWebSocketreferee.subscribe(msg => {
+      if(msg.trim() != "Connection succeed !"){
+        let data = JSON.parse(msg);
+        console.log(data);
+        if(data.Status == "NOT_BEGN"){
+          this.myWebSocketreferee.next(
+            {"IdMatch": this.id,
+            "Equipe": "",
+            "EventType": "BEGIN_MATCH",
+            "EventValue": "BEGIN_MATCH"});
+        }
+        this.nbSetA=0;
+        this.nbSetB=0;
+        data.Sets.forEach(element => {
+          if(element.Status=="END_SET"){
+            if(element.EquipeA.Score>element.EquipeB.Score)
+              this.nbSetA++;
+            else if(element.EquipeB.Score>element.EquipeA.Score)
+              this.nbSetB++;
+          }
+          if(element.Status=="SET_IN_PROGRESS"){
+            this.pointA = element.EquipeA.Score;
+            this.pointB = element.EquipeB.Score;
+          }
+        });
       }
-      if (this.pointA<21){
-        this.pointA++;
-      }
-      if(this.pointA==21 && this.pointB<=19){
-        this.nbSetA++;
-        this.pointA=0;
-        this.pointB=0;
-      }
-      else if (this.pointA>=21 && this.pointA-this.pointB==2){
-        this.nbSetA++;
-        this.pointA=0;
-        this.pointB=0;
-      }
-    }
-    if(value == "B"){
-      if (this.pointB>=21 && this.pointB-this.pointA<2){
-        this.pointB++;
-      }
-      if (this.pointB<21){
-        this.pointB++;
-      }
-      if(this.pointB==21 && this.pointA<=19){
-        this.nbSetB++;
-        this.pointA=0;
-        this.pointB=0;
-      }
-      else if (this.pointB>=21 && this.pointB-this.pointA==2){
-        this.nbSetB++;
-        this.pointA=0;
-        this.pointB=0;
-      }
-    }
-    if(this.nbSetA ==2 || this.nbSetB == 2){
-      this.myWebSocketreferee.subscribe();
-      this.router.navigateByUrl("/tournament-home");
-    }
-  };
+    });
+    this.blankStart();
+  }
 
-  decrement (value) {
-    if(value =="A" && this.pointA!=0){
-      this.pointA--
-    }
-    else if (value =='B' &&this.pointB !=0){
-      this.pointB--;
-    }
-  };
+  blankStart(){
+    this.myWebSocketreferee.next(
+      {"IdMatch": this.id,
+      "Equipe": "EQUIPEA",
+      "EventType": "POINT",
+      "EventValue": "{\"Point\":0}"});
+  }
 }

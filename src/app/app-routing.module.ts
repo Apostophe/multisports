@@ -4,6 +4,7 @@ import { AllMatchesComponent } from './all-matches/all-matches.component';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { MatchDisplayRefereeComponent } from './match-display-referee/match-display-referee.component';
 import { MatchDisplayComponent } from './match-display/match-display.component';
 import { RegisterComponent } from './register/register.component';
 import { TournamentCreationComponent } from './tournament-creation/tournament-creation.component';
@@ -12,7 +13,8 @@ import { TournamentHomeComponent } from './tournament-home/tournament-home.compo
 
 
 const routes: Routes = [
-  { path: 'match/:equipeA/:equipeB', component: MatchDisplayComponent },
+  { path: 'match/:equipeA/:equipeB/:id/referee', component: MatchDisplayRefereeComponent },
+  { path: 'match/:equipeA/:equipeB/:id', component: MatchDisplayComponent },
   { path: 'all-matches', component: AllMatchesComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
