@@ -37,6 +37,8 @@ export class TournamentDisplayComponent implements OnInit {
 
   refreshData(){
     let params = new HttpParams().set("tournamentID",this.id.toString()); //Create new HttpParams
+    this.games=[];
+    this.gamesFini=[];
     this.http.get<any>('https://warm-dusk-64603.herokuapp.com/get-live-match-for-tournament', {params: params}).subscribe(data=>{
       data.forEach(element => {
         {
