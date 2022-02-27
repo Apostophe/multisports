@@ -5,7 +5,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
 import { webSocket } from 'rxjs/webSocket';
 
-const refereeConnection = 'ws://warm-dusk-64603.herokuapp.com/create-match';
+const refereeConnection = 'wss://warm-dusk-64603.herokuapp.com/create-match';
 
 
 @Component({

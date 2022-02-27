@@ -29,7 +29,7 @@ export class MatchDisplayComponent implements OnInit {
     this.equipeA = this.route.snapshot.paramMap.get('equipeA');
     this.equipeB = this.route.snapshot.paramMap.get('equipeB');
     this.id = this.route.snapshot.paramMap.get('id')
-    this.refereeConnection= 'ws://warm-dusk-64603.herokuapp.com/spectateur?matchID='+this.id;
+    this.refereeConnection= 'wss://warm-dusk-64603.herokuapp.com/spectateur?matchID='+this.id;
     this.refreshData();
     this.interval = setInterval(() => { 
       this.refreshData(); 
