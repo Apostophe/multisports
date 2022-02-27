@@ -79,8 +79,6 @@ export class MatchDisplayRefereeComponent implements OnInit {
           }
         });
       }
-    },()=>{
-        this.startWS();
     })
      ;
     this.blankStart();
@@ -120,6 +118,8 @@ export class MatchDisplayRefereeComponent implements OnInit {
     }
   };
   blankStart(){
+    this.startWS();
+
     this.myWebSocketreferee.next(
       {"IdMatch": this.id,
       "Equipe": "EQUIPEA",
@@ -128,6 +128,8 @@ export class MatchDisplayRefereeComponent implements OnInit {
   }
 
   addPoint(equipe){
+    this.startWS();
+
       this.myWebSocketreferee.next(
         {"IdMatch": this.id,
         "Equipe": "EQUIPE"+equipe,
@@ -136,6 +138,8 @@ export class MatchDisplayRefereeComponent implements OnInit {
   }
 removePoint(equipe)
 {
+  this.startWS();
+
     this.myWebSocketreferee.next(
       {"IdMatch": this.id,
       "Equipe": "EQUIPE"+equipe,
@@ -144,6 +148,8 @@ removePoint(equipe)
   }
 
   endMatch(){
+    this.startWS();
+
     this.stopbouncing = true;
     this.myWebSocketreferee.next(
     {"IdMatch": this.id,
@@ -154,6 +160,8 @@ removePoint(equipe)
   }
 
   endSet(){
+    this.startWS();
+
     this.myWebSocketreferee.next(
     {"IdMatch": this.id,
     "Equipe": "",
@@ -163,6 +171,8 @@ removePoint(equipe)
   }
 
   newSet(){
+    this.startWS();
+
     this.myWebSocketreferee.next(
     {"IdMatch": this.id,
     "Equipe": "",

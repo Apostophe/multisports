@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { webSocket } from 'rxjs/webSocket';
@@ -21,7 +21,7 @@ export class MatchDisplayComponent implements OnInit {
 
 
 
-  constructor(private route: ActivatedRoute,private router: Router) { }
+  constructor(private route: ActivatedRoute,private router: Router,private elementRef: ElementRef) { }
   myWebSocketreferee
 
   ngOnInit(): void {
@@ -72,15 +72,20 @@ export class MatchDisplayComponent implements OnInit {
           }
         });
       }
-    },()=>this.startWS());
+    });
     this.blankStart();
   }
 
   blankStart(){
+    this.startWS();
+
     this.myWebSocketreferee.next(
       {"IdMatch": this.id,
       "Equipe": "EQUIPEA",
       "EventType": "POINT",
       "EventValue": "{\"Point\":0}"});
+  }
+  ngOndestroy() {
+    this.elementRef.nativeElement.remove();
   }
 }
