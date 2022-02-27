@@ -19,7 +19,7 @@
         <div class="row">
 
           <div *ngFor="let game of games" class="col-md-6 col-12 mb-3">
-            <a (click)="openDialog(content,game.EquipeA,game.EquipeB,game.Id)"><div class="bg-dark card tournament-card">
+            <a (click)="openDialog(content,game,game.Id)"><div class="bg-dark card tournament-card">
               <div class="p-4">
                 <h4>{{game.EquipeA}} - {{game.EquipeB}}</h4>
                 <h2>{{game.sport}}</h2>
@@ -37,7 +37,7 @@
         <div class="row">
 
           <div *ngFor="let game of gamesFini" class="col-md-6 col-12 mb-3">
-            <a (click)="openDialog(content,game.EquipeA,game.EquipeB,game.Id)"><div class="bg-dark card tournament-card">
+            <a (click)="openDialog(content,game,game.Id)"><div class="bg-dark card tournament-card">
               <div class="p-4">
                 <h4>{{game.EquipeA}} - {{game.EquipeB}}</h4>
                 <h2>{{game.sport}}</h2>

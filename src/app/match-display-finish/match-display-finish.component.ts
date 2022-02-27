@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
 import { webSocket } from 'rxjs/webSocket';
+
 @Component({
-  selector: 'app-match-display',
-  templateUrl: './match-display.component.html',
-  styleUrls: ['./match-display.component.scss']
+  selector: 'app-match-display-finish',
+  templateUrl: './match-display-finish.component.html',
+  styleUrls: ['./match-display-finish.component.scss']
 })
-export class MatchDisplayComponent implements OnInit {
-  
+export class MatchDisplayFinishComponent implements OnInit {
+
   equipeA;
   equipeB;
   nbSetA=0;
@@ -21,7 +21,7 @@ export class MatchDisplayComponent implements OnInit {
 
 
 
-  constructor(private route: ActivatedRoute,private router: Router) { }
+  constructor(private route: ActivatedRoute,private router: Router,private elementRef: ElementRef) { }
   myWebSocketreferee
 
   ngOnInit(): void {
@@ -29,7 +29,7 @@ export class MatchDisplayComponent implements OnInit {
     this.equipeA = this.route.snapshot.paramMap.get('equipeA');
     this.equipeB = this.route.snapshot.paramMap.get('equipeB');
     this.id = this.route.snapshot.paramMap.get('id')
-    this.refereeConnection= 'ws://warm-dusk-64603.herokuapp.com/spectateur?matchID='+this.id;
+    this.refereeConnection= 'ws://warm-dusk-64603.herokuapp.com/referee?IdMatch='+this.id;
     this.refreshData();
     this.interval = setInterval(() => { 
       this.refreshData(); 
@@ -72,7 +72,7 @@ export class MatchDisplayComponent implements OnInit {
           }
         });
       }
-    },()=>this.startWS());
+    });
     this.blankStart();
   }
 
@@ -82,5 +82,8 @@ export class MatchDisplayComponent implements OnInit {
       "Equipe": "EQUIPEA",
       "EventType": "POINT",
       "EventValue": "{\"Point\":0}"});
+  }
+  ngOndestroy() {
+    this.elementRef.nativeElement.remove();
   }
 }

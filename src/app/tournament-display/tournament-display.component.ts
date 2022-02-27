@@ -69,15 +69,22 @@ export class TournamentDisplayComponent implements OnInit {
     });
   }
 
-  openDialog(content,equipeA,equipeB,id):void{
+  openDialog(content,game,id):void{
     this.modalService.open(content,
       {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
          console.log(this.model);
-         if(this.model == "Oui"){
-          this.router.navigateByUrl("/match/"+equipeA+"/"+equipeB+"/"+id+"/referee");
+         console.log(game);
+         console.log(game.Status);
+         if(game.MatchValues.Status.includes("END_MATCH")){
+          this.router.navigateByUrl("/match/"+game.EquipeA+"/"+game.EquipeB+"/"+id+"/finished");
          }
          else{
-          this.router.navigateByUrl("/match/"+equipeA+"/"+equipeB+"/"+id);
+          if(this.model == "Oui"){
+            this.router.navigateByUrl("/match/"+game.EquipeA+"/"+game.EquipeB+"/"+id+"/referee");
+           }
+           else{
+            this.router.navigateByUrl("/match/"+game.EquipeA+"/"+game.EquipeB+"/"+id);
+           }
          }
        });
     //this.router.navigateByUrl("/match/"+equipeA+"/"+equipeB);

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { webSocket } from 'rxjs/webSocket';
@@ -17,8 +17,9 @@ export class MatchDisplayRefereeComponent implements OnInit {
   pointB=0;
   id:string;
   refereeConnection;
+  stopbouncing=false;
 
-  constructor(private route: ActivatedRoute,private router: Router) { }
+  constructor(private route: ActivatedRoute,private router: Router,private elementRef: ElementRef) { }
   myWebSocketreferee;
 
   ngOnInit(): void {
@@ -29,6 +30,7 @@ export class MatchDisplayRefereeComponent implements OnInit {
     this.beginMatch();
 
   }
+
 
    findDiff(str1, str2){ 
     let diff= "";
@@ -66,7 +68,6 @@ export class MatchDisplayRefereeComponent implements OnInit {
             else if(element.EquipeB.Score>element.EquipeA.Score)
               this.nbSetB++;
           }
-          
           if(this.nbSetA ==2 || this.nbSetB == 2){
             this.endMatch();
             this.router.navigateByUrl("/tournament-home");
@@ -74,17 +75,27 @@ export class MatchDisplayRefereeComponent implements OnInit {
           if(element.Status=="SET_IN_PROGRESS"){
             this.pointA = element.EquipeA.Score;
             this.pointB = element.EquipeB.Score;
-            
+            this.checkSet();
           }
         });
       }
-    });
+    },()=>{
+        this.startWS();
+    })
+     ;
     this.blankStart();
     console.log(this.myWebSocketreferee);
   }
 
   beginMatch(){
     this.startWS();
+  }
+
+  checkSet(){
+    if((this.pointA==21 && this.pointB<=19)|| (this.pointB==21 && this.pointA<=19) ||(this.pointA>=21 && this.pointA-this.pointB==2)||(this.pointB>=21 && this.pointB-this.pointA==2)){
+      this.endSet();
+      this.newSet();
+    }
   }
 
   increment(value) {
@@ -94,6 +105,9 @@ export class MatchDisplayRefereeComponent implements OnInit {
       }
       if (this.pointA<21){
         this.addPoint("A");
+      }
+      if (this.pointA>=21 && this.pointA-this.pointB==2){
+
       }
     }
     if(value == "B"){
@@ -105,7 +119,6 @@ export class MatchDisplayRefereeComponent implements OnInit {
       }
     }
   };
-
   blankStart(){
     this.myWebSocketreferee.next(
       {"IdMatch": this.id,
@@ -115,7 +128,6 @@ export class MatchDisplayRefereeComponent implements OnInit {
   }
 
   addPoint(equipe){
-    this.startWS();
       this.myWebSocketreferee.next(
         {"IdMatch": this.id,
         "Equipe": "EQUIPE"+equipe,
@@ -124,7 +136,6 @@ export class MatchDisplayRefereeComponent implements OnInit {
   }
 removePoint(equipe)
 {
-  this.startWS();
     this.myWebSocketreferee.next(
       {"IdMatch": this.id,
       "Equipe": "EQUIPE"+equipe,
@@ -133,7 +144,7 @@ removePoint(equipe)
   }
 
   endMatch(){
-    this.startWS();
+    this.stopbouncing = true;
     this.myWebSocketreferee.next(
     {"IdMatch": this.id,
     "Equipe": "",
@@ -143,7 +154,6 @@ removePoint(equipe)
   }
 
   endSet(){
-    this.startWS();
     this.myWebSocketreferee.next(
     {"IdMatch": this.id,
     "Equipe": "",
@@ -153,7 +163,6 @@ removePoint(equipe)
   }
 
   newSet(){
-    this.startWS();
     this.myWebSocketreferee.next(
     {"IdMatch": this.id,
     "Equipe": "",

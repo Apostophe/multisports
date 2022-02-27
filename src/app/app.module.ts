@@ -16,6 +16,7 @@ import { AllMatchesComponent } from './all-matches/all-matches.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatchDisplayRefereeComponent } from './match-display-referee/match-display-referee.component';
+import { MatchDisplayFinishComponent } from './match-display-finish/match-display-finish.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MatchDisplayRefereeComponent } from './match-display-referee/match-disp
     TournamentDisplayComponent,
     TournamentCreationComponent,
     AllMatchesComponent,
-    MatchDisplayRefereeComponent    
+    MatchDisplayRefereeComponent,
+    MatchDisplayFinishComponent    
   ],
   imports: [
     BrowserModule,

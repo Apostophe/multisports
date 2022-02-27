@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { webSocket } from 'rxjs/webSocket';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -15,7 +15,7 @@ export class TournamentHomeComponent implements OnInit {
   interval: any;
   searchText;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private elementRef:ElementRef) { }
   
   ngOnInit(): void {
     this.refreshData();
@@ -29,6 +29,9 @@ export class TournamentHomeComponent implements OnInit {
     this.http.get<any>(refereeConnection).subscribe(data=> {
       this.tournaments = data;
     });
+  }
+  ngOndestroy() {
+    this.elementRef.nativeElement.remove();
   }
 
 }
