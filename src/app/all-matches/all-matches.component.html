@@ -18,9 +18,9 @@
           <div class="row">
             <!-- Tournament 1 -->
             <div *ngFor="let match of matches" class="col-md-6 col-12 mb-3">
-              <a routerLink="/match/{{match.equipeA}}/{{match.equipeB}}"> <div class="bg-dark card tournament-card">
+              <a routerLink="/match/{{match.EquipeA}}/{{match.EquipeB}}"> <div class="bg-dark card tournament-card">
                 <div class="p-4">
-                  <h4>{{match.equipeA}} - {{match.equipeB}}</h4>
+                  <h4>{{match.EquipeA}} - {{match.EquipeB}}</h4>
                   <h2>{{match.sport}}</h2>
                   <i class="fas fa-eye"></i>
                 </div>

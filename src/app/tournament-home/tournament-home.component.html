@@ -20,7 +20,7 @@
           <!-- Tournament 1 -->
           <div *ngFor="let tournament of tournaments | filter:searchText" class="col-md-6 col-12 mb-3">
             <div class="bg-dark card tournament-card">
-              <a routerLink="/display-tournament/{{tournament.ID}}">
+              <a routerLink="/display-tournament/{{tournament.ID}}/{{tournament.Name}}">
               <div class="p-4">
                 <h4>{{tournament.Name}}</h4>
                 <i class="fas fa-eye"></i>
