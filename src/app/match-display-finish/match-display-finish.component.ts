@@ -33,7 +33,7 @@ export class MatchDisplayFinishComponent implements OnInit {
     this.refreshData();
     this.interval = setInterval(() => { 
       this.refreshData(); 
-    }, 40000);
+    }, 5000);
   }
   refreshData():void{
     this.startWS();
