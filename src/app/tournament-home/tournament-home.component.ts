@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { webSocket } from 'rxjs/webSocket';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { clearInterval } from 'timers';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class TournamentHomeComponent implements OnInit {
 
   tournaments;
-  interval: any;
+  interval: NodeJS.Timeout;
   searchText;
 
   constructor(private http: HttpClient, private elementRef:ElementRef) { }
@@ -31,7 +32,9 @@ export class TournamentHomeComponent implements OnInit {
     });
   }
   ngOndestroy() {
+    clearInterval(this.interval);
     this.elementRef.nativeElement.remove();
+    
   }
 
 }
