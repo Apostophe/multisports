@@ -13,7 +13,7 @@ import { clearInterval } from 'timers';
 export class TournamentHomeComponent implements OnInit {
 
   tournaments;
-  interval: NodeJS.Timeout;
+  interval:any;
   searchText;
 
   constructor(private http: HttpClient, private elementRef:ElementRef) { }

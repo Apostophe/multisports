@@ -49,14 +49,7 @@ export class MatchDisplayFinishComponent implements OnInit {
     this.myWebSocketreferee.subscribe(msg => {
       if(msg.trim() != "Connection succeed !"){
         let data = JSON.parse(msg);
-        console.log(data);
-        if(data.Status == "NOT_BEGN"){
-          this.myWebSocketreferee.next(
-            {"IdMatch": this.id,
-            "Equipe": "",
-            "EventType": "BEGIN_MATCH",
-            "EventValue": "BEGIN_MATCH"});
-        }
+
         this.nbSetA=0;
         this.nbSetB=0;
         data.Sets.forEach(element => {
