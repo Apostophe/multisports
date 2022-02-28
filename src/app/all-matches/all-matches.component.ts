@@ -21,9 +21,10 @@ export class AllMatchesComponent implements OnInit {
         console.log(data);
         data.forEach(element => {
           if(!element.MatchValues.includes("END_MATCH")){
+            element.MatchValues = JSON.parse(element.MatchValues);
             this.matches.push(element);
           }
-          else{this.matchesfini.push(element);}
+          else{this.matchesfini.push(element);element.MatchValues = JSON.parse(element.MatchValues);}
         });
         console.log(this.matches);
         console.log(this.matchesfini);
