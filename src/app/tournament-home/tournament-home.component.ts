@@ -22,7 +22,7 @@ export class TournamentHomeComponent implements OnInit {
     this.refreshData();
     this.interval = setInterval(() => { 
       this.refreshData(); 
-  }, 5000);
+  }, 60000);
   }
 
   refreshData():void{
@@ -34,7 +34,6 @@ export class TournamentHomeComponent implements OnInit {
   ngOndestroy() {
     clearInterval(this.interval);
     this.elementRef.nativeElement.remove();
-    
   }
 
 }
