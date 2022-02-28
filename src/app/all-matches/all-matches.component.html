@@ -19,7 +19,7 @@
           <div class="row">
             <!-- Tournament 1 -->
             <div *ngFor="let match of matches" class="col-md-6 col-12 mb-3">
-              <a (click)="openDialog(content,match.EquipeA,match.EquipeB,match.Id)"> <div class="bg-dark card tournament-card">
+              <a (click)="openDialog(content,match,match.Id)"> <div class="bg-dark card tournament-card">
                 <div class="p-4">
                   <h4>{{match.EquipeA}} - {{match.EquipeB}}</h4>
                   <h2>{{match.sport}}</h2>
@@ -35,7 +35,7 @@
       <div *ngIf="fini" class="remove-margins">
       <div class="row">
           <div *ngFor="let match of matchesfini" class="col-md-6 col-12 mb-3">
-            <a (click)="openDialog(content,match.EquipeA,match.EquipeB,match.Id)"> <div class="bg-dark card tournament-card">
+            <a (click)="openDialog(content,match,match.Id)"> <div class="bg-dark card tournament-card">
               <div class="p-4">
                 <h4>{{match.EquipeA}} - {{match.EquipeB}}</h4>
                 <h2>{{match.sport}}</h2>
